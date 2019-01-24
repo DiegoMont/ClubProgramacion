@@ -1,8 +1,10 @@
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 class Jamie {
-  public static void main (String[]args){
-    Scanner sc = new Scanner(System.in);
+  public static void main (String[]args) throws FileNotFoundException {
+    Scanner sc = new Scanner(new File("texto.txt"));
     int numCases = Integer.parseInt(sc.nextLine());
     for (int i = 0; i<numCases ;i++){
       long resultado = 1L;
