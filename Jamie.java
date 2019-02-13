@@ -21,7 +21,7 @@ class Jamie {
       long Periodo = 0L;
       long[] periodo = new long[10];
       int[] residuos = {a};
-      int resultado = 1;
+      long resultado = 1L;
       int indexPeriodo = 0;
       do {
         residuo *=10;
@@ -64,7 +64,7 @@ class Jamie {
         resultado*=Math.pow(k,periodo[k]);
         System.out.print(k+": "+periodo[k]+", ");
       }
-      System.out.println("  a: " + a+"  b: "+b+"  n: "+n+"  "+((double)a/b)+"  Periodo: "+Periodo);
+      System.out.println("  a: " + a+"  b: "+b+"  n: "+n+"  "+((double)a/b)+"  Periodo: "+Periodo + "  Resultado: "+resultado%188888881);
 
 
 //}}}
