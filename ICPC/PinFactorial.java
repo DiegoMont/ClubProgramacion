@@ -11,17 +11,19 @@ class PinFactorial {
       int r = sc.nextInt();
       int x = sc.nextInt();
       int y = sc.nextInt(); sc.nextLine();
-      int pin = 1;
+      long pin = 1L;
       int resultado = 0;
+      long limite = 10000000000000L;
       for (int i = 1; i < l; i++) {
         pin *= i;
         while (pin % 10 == 0) pin /= 10;
+        pin %= limite;
       }
       for (int i = l; i <= r; i++) {
         pin *= i;
         while (pin % 10 == 0) pin /= 10;
-        resultado += (x <= pin && pin <= y)? 1 : 0;
-
+        pin %= limite;
+        resultado += (x <= pin%100000 && pin%100000 <= y)? 1 : 0;
       }
       System.out.println(resultado);
     }
