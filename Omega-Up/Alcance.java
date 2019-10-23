@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -15,6 +16,11 @@ class Main {
       else if (limites[2] > coordenadas[i][1]) limites[2] = coordenadas[i][1];
     }
     char[][] resultado = new char[limites[0]-limites[2]+1][limites[1]-limites[3]+1];
+    for (int i = 0; i < resultado.length; i++) {
+      for (int j = 0; j < resultado[0].length; j++) {
+        resultado[i][j] = ' ';
+      }
+    }
     for (int i = 0; i < coordenadas.length; i++) {
       int normalX = coordenadas[i][0] - limites[3];
       int normalY = limites[0] - coordenadas[i][1];
