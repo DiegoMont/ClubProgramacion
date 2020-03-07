@@ -1,0 +1,167 @@
+AREA RUG
+The main room of your home is square, nxn feet. Unfortunately, the floor is dirty. You’re a college student, so you hate to clean! Rather than clean it, you buy an area rug sxs feet square to cover some of the dirty spots.
+Consider all of the ways that you could place the sxs area rug in the nxn room so that all sxs square feet of it cover part of the floor, axis aligned (no rotation). How many ways are there to cover a certain number of dirty spots?
+INPUT
+Each input will consist of a single test case. Note that your program may be run multiple times on different inputs.
+Each test case will begin with a line with two space-separated integers n (1 <= n <= 1,000) and s (1 <= s <= min[n,100]), where n is the size of one side of the room, and s is the size of one side of the new area rug.
+Each of the next n lines will have a string of exactly n characters, consisting only of 'C' (a clean spot on the floor) or 'D' (a dirty spot on the floor).
+OUTPUT
+For each count of dirty floor spots covered, from 0 to s^2, if the number of ways of covering that many dirty spots with an area rug of size sxs is greater than 0, output the number of spots and the number of ways of covering them on a line, separated by a space. Output them in order, smallest number of dirty spots to largest.
+SAMPLE INPUT
+10 5
+DDDDDDDDDD
+DCCCCCCCCD
+DCCCCCCCCD
+DCCCCCCCCD
+DCCCCCCCCD
+DCCCCCCCCD
+DCCCCCCCCD
+DCCCCCCCCD
+DCCCCCCCCD
+DDDDDDDDDD
+SAMPLE OUTPUT
+0 16
+5 16
+9 4
+
+CONJECTURE / REPEATING GOLDBACHS
+The Goldbach Conjecture states that any even number greater than 3 can be expressed as the sum of two primes (primes are numbers that have exactly two factors: themselves and 1). It has never been proven for all even numbers, but it has been demonstrated to be true for all of the numbers that we'll use for this problem.
+Consider any even integer X>3. There may be many pairs of primes which sum to X. Take the pair with the largest difference. That difference must be even, and less than X. So, repeat the trick. How many steps does it take until you reach an even number less than 3 (2 or 0)?
+INPUT
+Each input will consist of a single test case. Note that your program may be run multiple times on different inputs.
+Each test case will consist of a single line with a single integer X (0 <= X <= 10^6, X is even).
+OUTPUT
+Output a single integer, which is the count of Repeating Goldbach steps until the number is less than 3.
+SAMPLE INPUT     SAMPLE OUTPUT
+20               3
+30               4
+40               5
+50               6
+60               7
+70               8
+
+DE BITS / COUNT
+Given a value K and a number of bits B, calculate the total number of 1-bits in the binary representations of all multiples of k that are between 0 and 2^B-1 (inclusive).
+INPUT
+Each input will consist of a single test case. Note that your program may be run multiple times on different inputs.
+Each test case will consist of a single line containing two space-separated integers K (1 <= K <= 1,000) and B (1 <= B <= 128), where K and B are as described above.
+OUTPUT
+Output a single integer, which is the total number of 1-bits in the binary representations of all multiples of K that are between 0 and 2^B-1 (inclusive). Since this number may be very large, output it modulo 10^9+9.
+SAMPLE INPUT     SAMPLE OUTPUT
+1 4              32
+10 5             8
+100 7            3
+3 28             252698795
+11 128           856188165
+1 26             872415232
+876 128          530649653
+
+EXAM
+You and your friend have just taken a True/False exam. Your friend has been to see the instructor, so they know how many answers they got right (but not which ones). You compare notes: you know your answers and your friend's answers. What is the maximum number of answers you could have gotten right?
+INPUT
+Each input will consist of a single test case. Note that your program may be run multiple times on different inputs.
+Each test case will begin with a line containing a single integer N (0 <= N <= 1,000), which is the number of answers your friend got right on the exam.
+Each of the next two lines will contain a string S (max[N,1] <= |S| <= 1,000, S E {T,F}*). The two strings will be of the same length. The first line represents your answers; the second line represents your friend's answers. The order of answers is the same in both strings: the first letter is the answer to question 1, the second to question 2, and so on.
+OUTPUT
+Output a single integer, which is the maximum number of answers you could have gotten right.
+SAMPLE INPUT
+3
+FTFFF
+TFTTT
+SAMPLE OUTPUT
+2
+SAMPLE INPUT
+6
+TTFTFFTFTF
+TTTTFFTTTT
+SAMPLE OUTPUT
+9
+
+FIGURE / SCULPTURE
+A modern artist has created a large outdoor sculpture. It consists of a rectangular grid, where each square cell of the grid is raised to a different height. Because the sculpture is to be placed outdoors, the artist is worried about rainwater pooling in the lower cells. He needs to figure out which cells need to have drains installed. A cell will need a drain if the four cells above, below, left and right are all higher. A cell on the edge or corner of the grid will never need a drain.
+INPUT
+Each input will consist of a single test case. Note that your program may be run multiple
+times on different inputs.
+Each test case will begin with a line with two space-separated integers R and C (1 <= R, C <= 100), which are the dimensions of the artist's grid.
+Each of the next R rows will contain C space-separated integers H (0 <= H <= 1,000), which are the heights of the cells in inches. It is guaranteed that every cell's height will be different from those immediately above, below, to the left, and to the right.
+OUTPUT
+Output R lines with C space-separated integers each. Output a 1 if that cell needs a drain, 0 if it doesn't.
+SAMPLE INPUT
+7 10
+4 5 6 5 7 8 9 3 2 4
+9 1 3 4 6 2 0 5 6 1
+7 8 1 3 8 7 5 4 3 2
+9 3 4 2 7 6 8 2 8 7
+8 5 3 6 4 0 7 9 6 3
+3 8 4 8 3 7 4 2 5 7
+9 3 0 4 5 6 7 8 4 3
+SAMPLE OUTPUT
+0 0 0 0 0 0 0 0 0 0
+0 1 0 0 0 0 1 0 0 0
+0 0 1 0 0 0 0 0 0 0
+0 1 0 1 0 0 0 1 0 0
+0 0 1 0 0 1 0 0 0 0
+0 0 0 0 1 0 0 1 0 0
+0 0 0 0 0 0 0 0 0 0
+
+GOAT ROPE
+You have a fence post located at (X, Y) and a goat. You also have a house, which you model as an axis-aligned rectangle with opposite corners at (X1, Y1) and (X2, Y2). You want to give the goat as much room to roam as possible, but you don’t want the goat to be able to touch the house. As a guide to how much rope you should buy, determine the
+minimum distance from the post to your house.
+INPUT
+Each test case will consist of a single line containing six space-separated integers, all in the same units:
+    X Y X1 Y1 X2 Y2
+Where (X, Y) is the location of the post, and (X1, Y1) and (X2, Y2) are opposite corners of the house. The following are guaranteed:
+ * All values are between -1,000 and 1,000 inclusive.
+ * X1 < X2 and Y1 < Y2
+ * The post is not inside the house or on the border.
+   - At least one of these is true: X < X1 or X > X2 or Y < Y1 or Y > Y2
+OUTPUT
+Output a single real number, which is the minimum distance from the post to your house (in the same units as the inputs). Output this number rounded to exactly 3 decimal places.
+SAMPLE INPUT     SAMPLE OUTPUT
+7 4 0 0 5 4      2.000
+6 0 0 2 7 6      2.000
+4 8 7 8 9 9      3.000
+
+INVASION / TROOP MOBILIZATION
+You are playing a strategy games in which you are required to mobilize an army. The army consists of different types of troops, each of which has a cost, health, and potency. You can acquire any combination of the troop types, even fractional, such that the total cost is no more than the amount of money you have to spend. The strength of the army is equal to its total health value multiplied by its total potency. What is the greatest strength you can achieve given the troops available and the money in your coffers? You may assume that there will always be sufficient troops to buy as many as you can afford.
+INPUT
+Each test case will begin with a line with two space-separated integers N (1 <= N <= 30,000) and M (0 <= M <= 100,000), where N is the number of troop types and M is the total amount of money you have to spend.
+Each of the next N lines will hold three values separated by spaces, representing a type of troop:
+   C H P
+Where C (1 <= c <= 100,000) is an integer, which is the cost of that type of troop, H (0.0 <= H <= 1.0) is a real number, which is the health of that type of troop, and
+P (0.0 <= P <= 1.0) is a real number, which is the potency of that type of troop.
+OUTPUT
+Output a single real number, which is the maximum strength you can achieve with your
+monetary resources. Output this number rounded to exactly 2 decimal places.
+SAMPLE INPUT
+4 100000
+300 1 0.02
+500 0.2 1
+250 0.3 0.1
+1000 1 0.1
+SAMPLE OUTPUT
+19436.05
+SAMPLE INPUT
+2 100
+1 0.1 1
+1 1 0.1
+SAMPLE OUTPUT
+3025.00
+
+TIME LIMITS
+Your Chief Judge needs help! He needs to set the time limit for a problem in the problem set. He has N solutions written by his judges. He knows how long each runs in the contest environment, in milliseconds. He wants to set the time limit to be at least S times the slowest solution from his judges, but as small as possible, and he wants it to be an integral number of seconds. Can you help him?
+INPUT
+Each test case will begin with a line containing two space-separated integers N (1 <= N <= 100) and S (1 <= S <= 20), where N is the number of solutions from judges, and S is the multiplying factor.
+The next line will contain N space-separated integers M (1 <= M <= 2,000), which are the number of milliseconds it takes for some judge's solution to run in the contest environment.
+OUTPUT
+Output a single integer, which is the time limit to set for this problem. It should be in seconds, and the smallest time that is at least s times the slowest judge’s solution.
+SAMPLE INPUT
+2 5
+200 250
+SAMPLE OUTPUT
+2
+SAMPLE INPUT
+3 4
+47 1032 1107
+SAMPLE OUTPUT
+5

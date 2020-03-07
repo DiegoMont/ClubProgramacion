@@ -1,0 +1,280 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww37900\viewh18280\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 BALANCED ANIMALS\
+To save money, Santa Claus has started hiring other animals besides reindeer to pull his sleight via short term contracts. As a result, the actual animals that show up to pull his sleigh for any given trip can vary greatly in size. Last week he had 3 buffalo, 37 voles and a schnauzer. Unfortunately, both buffalo were hitched on the left side and the entire sleight flipped over in mid-flight due to the weight imbalance.\
+To prevent such accidents in the future, Santa needs to divide the animals for a given trip into two groups such that the sum of the weights of all animals in one group equals the sum of the weights of all animals in the other. To make the hitching process efficient, Santa is seeking an integer target weight t such that all animals that are lighter than t go in one group and those heavier than t go into the other. If there are multiple such t, he wants the smallest one. There\'92s one small wrinkle: what should be done if there some animals have weight exactly equal to t? Santa solves the problem this way: if there are an even number of such animals, he divides them equally among the two groups (thus distributing the weight evenly). But if there are an odd number of such animals, then one of those animals is sent to work with the elves to make toys (it is not put in either group), and the remaining (now an even number) are divided evenly among the two groups.\
+INPUT\
+The first line contains an integer n (2 <= n <= 105), indicating the number of animals. Each of the next n lines contain a positive integer w (1 <= w <= 2*10^5). These are the weights of the animals (in ounces).\
+OUTPUT\
+Output the smallest integer target weight t, as described above. It\'92s guaranteed that it is possible to find such an integer.\
+Sample\
+Input\
+4\
+3\
+6\
+1\
+2\
+Output\
+4\
+Input\
+4\
+11\
+8\
+3\
+10\
+Output\
+10\
+Input\
+2\
+99\
+99\
+Output\
+99\
+\
+CHECKERBOARD\
+An r x c grid of squares is to be colored in a checkerboard style. The board will be filled with rectangles made up of the grid squares. The heights and widths of the rectangles will be specified. Black and White are the only two colors of the rectangles. Any two adjacent rectangles that share a side should be colored differently. The top-left rectangle should be Black. Print the checkerboard.\
+INPUT\
+The first line contains four space-separated integers r, c, v, and h (1 <= v <= r <= 50, 1 <= h <= c <= 50) where the checkerboard is to have r rows and c columns, with v rectangles vertically and h rectangles horizontally.\
+Each of the next v lines contains a single positive integer a. The sum of the a values will be exactly r. These are the height of the v rectangles in each column, in order from top to bottom.\
+Each of the next h lines contain a single positive integer b. The sum of the b values will be exactly c. These are the widths of the h rectangles in each row, in order from left to right.\
+OUTPUT\
+Print the described checkerboard, in the form of r strings of length c, one per line. The strings should only contain the characters upper-case B (for a Black square) and upper-case W (for a White square).\
+Sample\
+Input\
+6 5 3 2\
+1\
+2\
+3\
+3\
+2\
+Output\
+BBBWW\
+WWWBB\
+WWWBB\
+BBBWW\
+BBBWW\
+BBBWW\
+Input\
+4 4 2 2\
+1\
+3\
+3\
+1\
+Output\
+BBBW\
+WWWB\
+WWWB\
+WWWB\
+\
+FROM A TO B\
+You are given two integers, a and b. You want to transform a into b by performing a sequence of operations. You can only perform the following operations:\
+  * Divide a by two (but only if a is even)\
+  * Add one to a\
+What is the minimum number of operations you need to transform a into b?\
+INPUT\
+The single line of input contains two space-separated integers a and b (1 <= a, b <= 10^9)\
+OUTPUT\
+Output a single integer, which is the minimum number of the given operations needed to transform a into b.\
+Sample\
+Input\
+103 27\
+Output\
+4\
+Input\
+3 8\
+Output\
+5\
+\
+EVEN OR ODD?\
+Your friend has secretly picked n consecutive positive integers between 1 and 10^18 and wants you to guess if their sum is even or odd.\
+If the sum must be even, write 2. If the sum must be odd, write 1. If the sum could be even or could be odd, write 0.\
+INPUT\
+The single line of input contains a single integer n (1 <= n <= 10^9).\
+OUTPUT\
+Output 2 if the sum of any n consecutive integers in the range from 1 to 10^18 must be even, 1 if the sum must be odd, or 0 if the sum could be either even or odd.\
+Sample\
+Input\
+3\
+Output\
+0\
+Input\
+6\
+Output\
+1\
+Input\
+12\
+Output\
+2\
+\
+FIXED POINT PERMUTATIONS\
+A permutation of size n is a list of integers (p1, p2, \'85 , pn) from 1 to n such that each number appears exactly once.\
+The number of fixed points of a permutation is the number of indices i such that pi = i.\
+Given three numbers n, m, and k, find the kth lexicographically smallest permutation of size n that has exactly m fixed points (or print -1 if there are fewer than k permutations that satisfy the condition).\
+INPUT\
+The single line of input contains three space-separated integers\
+  n(1 <= n <= 50)  m(0 <= m <= n)  k(1 <= k <= 10^18)\
+where n is the size of the permutations, m is the number of desired fixed points, and the output should be the kth lexicographically smallest permutation of the numbers 1 to n that has exactly m fixed points.\
+OUTPUT\
+Output the desired permutation on a single line as a sequence of n space-separated integers, or output -1 if no such permutation exists.\
+Sample\
+Input\
+3 1 1\
+Output\
+1 3 2\
+Input\
+3 2 1\
+Output\
+-1\
+Input\
+5 3 7\
+Output\
+2 1 3 4 5\
+\
+GLOW, PIXEL GLOW!\
+An LCD panel is composed of a grid of pixels, spaced 1 ALU (Arbitrary Length Unit) apart both horizontally and vertically. Wires run along each row and each column, intersecting at the pixels. Wires are numbered beginning with 1 and proceeding up to a panel-dependent maximum. The vertical wire numbered 1 lies along the left edge of the panel, and the horizontal wire numbered 1 lies along the bottom edge of the panel.\
+For a period of time, pulses of current will be sent down selected wires. The current flows down the wires at a speed of one ALU per ATU (Arbitrary Time Unit). The pulses themselves have a length measured in ATUs. A pixel will activate, and glow, when current is passing through both intersecting wires at the same time. It will deactivate when either current is no longer present. If the leading edge of a pulse on one wire reaches the intersection at the exact same time that the trailing edge of a pulse on the other wire leaves that intersection, the pixel is not activated.\
+All pulse in vertical wires start from the bottom of the grid. All pulses in horizontal wires start from the left of the grid. At most one pulse will travel along any one wire.\
+Given the schedule of pulses to be sent through the wires, determine how many pixels will have been activated by the time all pulses have exited the top and right of the grid.\
+INPUT\
+The first line of input contains a single integer n (1 <= n <= 200,000), which is the number of current pulses.\
+Each of the next n lines consists of four space-separated parameters, describing a pulse:\
+  d character (d = \'91h\'92, or d = \'91v\'92)\
+  t integer (1 <= a <= 200,000)\
+  m integer (1 <= t <= 200,000)\
+  a integer (1 <= m <= 100,000)\
+where d indicates whether the pulse is horizontal (\'91h\'92) or vertical (\'91v\'92), t is the time at which it starts (i.e., when a horizontal [vertical] pulse crosses vertical [horizontal] wire #1), m is its length, and a is the wire (horizontal or vertical along which the pulse will travel.)\
+OUTPUT\
+Output a single integer, which is the number of pixels that will have activated by the time the last pulse of current has left the grid.\
+Sample\
+Input\
+4\
+h 1 4 1\
+v 2 4 2\
+h 10 2 2\
+v 11 2 3\
+Output\
+2\
+Input\
+4\
+h 1 10 1\
+h 5 10 2\
+v 1 10 1\
+v 5 10 3\
+Output\
+4\
+Input\
+7\
+v 1 3 1\
+v 1 15 2\
+h 4 5 1\
+h 5 5 2\
+h 6 5 3\
+h 7 5 4\
+h 8 5 5\
+Output\
+5\
+\
+SWAP FREE\
+A set of words is called swap free if there is no way to turn any word in the set into any other word in the set by swapping only a single pair of (not necessarily adjacent) letters.\
+You are given a set of n words that are all anagrams of each other. There are no duplicate letters in any word. Find the size of the largest swap free subset of the given set. Note that it is possible for the largest swap free subset of the given set to be the set itself.\
+Input\
+The first line of input contains a single integer n (1 <= n <= 500).\
+Each of the next n lines contains a single word w (1 <= |w| <= 26).\
+Every word contains only lower-case letters and no duplicate letters. All n words are unique, and every word is an anagram of every other word.\
+OUTPUT\
+Output a single integer, which is the size of the largest swap free subset.\
+Sample\
+Input\
+6\
+abc\
+acb\
+cab\
+cba\
+bac\
+bca\
+Output\
+3\
+Input\
+11\
+alerts\
+alters\
+artels\
+estral\
+laster\
+ratels\
+salter\
+slater\
+staler\
+stelar\
+talers\
+Output\
+8\
+Input\
+6\
+ates\
+east\
+eats\
+etas\
+sate\
+teas\
+Output\
+4\
+\
+ONE OF EACH\
+You are given a sequence of n integers X = [x1, x2, \'85 , xn] and an integer k. It is guaranteed that 1 <= xi <= k, and every integer from 1 to k appears in the list X al least once.\
+Find the lexicographically smallest subsequence of X that contains each integer from 1 to k exactly once.\
+INPUT\
+The first line of input contains two integers n and k (1 <= k <= n <= 200,000), where n is the size of the sequence, and the sequence consists only of integers from 1 to k.\
+Each of the next n lines contains a single integer xi (1 <= xi <= k). These are the values of the sequence X in order. It is guaranteed that every value from 1 to k will appear at least once in the sequence X.\
+OUTPUT\
+Output a sequence of integers on a single line, separated by space. This is the lexicographically smallest subsequence of X that contains every value from 1 to k.\
+Sample\
+Input\
+6 3\
+3\
+2\
+1\
+3\
+1\
+3\
+Output\
+2 1 3\
+Input\
+10 5\
+5\
+4\
+3\
+2\
+1\
+4\
+1\
+1\
+5\
+5\
+Output\
+3 2 1 4 5\
+\
+RAINBOW STRINGS\
+Define a Rainbow String as a string where every letter in the string is distinct. The empty string is a Rainbow String.\
+Given a string of lower-case letters, compute the number of different subsequences which are Rainbow Strings. Two subsequences are different if letter at a specific position is included in one subsequence but not the other. Thus, two different subsequences may result in the same string.\
+For example, consider the string aab. The following six subsequence (in bold and underlined) are the only Rainbow Strings in aab:\
+  Aab  aAb aaB  AaB aAB <empty>\
+The answer may be large, so output the answer modulo 11092019.\
+INPUT\
+The single line of input contains a string s (1 <= |s| <= 100,000) which consists only of lower-case letters.\
+OUTPUT\
+Output a single integer, which is the number of subsequences of s which are Rainbow Strings.\
+Sample\
+Input\
+aab\
+Output\
+6\
+Input\
+icpcprogrammingcontest\
+Output\
+209952}

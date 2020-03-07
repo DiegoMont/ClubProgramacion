@@ -28,5 +28,6 @@ public class M {
       max++;
     }
     System.out.println((int)max);
+    sc.close();
   }
 }
