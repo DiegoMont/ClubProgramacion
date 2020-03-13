@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-int binarySearch(std::vector<int> arreglo, int elemento);
-int binarySearchRecursivo(std::vector<int> arreglo, int izq, int der, int elemento);
+int binarySearch(std::vector<int>& arreglo, int elemento);
+int binarySearchRecursivo(std::vector<int>& arreglo, int izq, int der, int elemento);
 
 
 int main(){
@@ -13,11 +13,11 @@ int main(){
   return 0;
 }
 
-int binarySearch(std::vector<int> arreglo, int elemento){
+int binarySearch(std::vector<int>& arreglo, int elemento){
   return binarySearchRecursivo(arreglo, 0, arreglo.size()-1, elemento);
 }
 
-int binarySearchRecursivo(std::vector<int> arreglo, int izq, int der, int elemento){
+int binarySearchRecursivo(std::vector<int>& arreglo, int izq, int der, int elemento){
   if (der < izq)
     return -1;
   else {
