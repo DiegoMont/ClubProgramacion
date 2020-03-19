@@ -56,27 +56,6 @@ SAMPLE INPUT     SAMPLE OUTPUT
 1 26             872415232
 876 128          530649653
 
-EXAM
-You and your friend have just taken a True/False exam. Your friend has been to see the instructor, so they know how many answers they got right (but not which ones). You compare notes: you know your answers and your friend's answers. What is the maximum number of answers you could have gotten right?
-INPUT
-Each input will consist of a single test case. Note that your program may be run multiple times on different inputs.
-Each test case will begin with a line containing a single integer N (0 <= N <= 1,000), which is the number of answers your friend got right on the exam.
-Each of the next two lines will contain a string S (max[N,1] <= |S| <= 1,000, S E {T,F}*). The two strings will be of the same length. The first line represents your answers; the second line represents your friend's answers. The order of answers is the same in both strings: the first letter is the answer to question 1, the second to question 2, and so on.
-OUTPUT
-Output a single integer, which is the maximum number of answers you could have gotten right.
-SAMPLE INPUT
-3
-FTFFF
-TFTTT
-SAMPLE OUTPUT
-2
-SAMPLE INPUT
-6
-TTFTFFTFTF
-TTTTFFTTTT
-SAMPLE OUTPUT
-9
-
 FIGURE / SCULPTURE
 A modern artist has created a large outdoor sculpture. It consists of a rectangular grid, where each square cell of the grid is raised to a different height. Because the sculpture is to be placed outdoors, the artist is worried about rainwater pooling in the lower cells. He needs to figure out which cells need to have drains installed. A cell will need a drain if the four cells above, below, left and right are all higher. A cell on the edge or corner of the grid will never need a drain.
 INPUT
