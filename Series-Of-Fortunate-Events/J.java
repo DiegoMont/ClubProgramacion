@@ -1,6 +1,6 @@
 //Judges Time
 import java.util.Scanner;
-public class Main {
+public class J {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int n, s;
@@ -14,7 +14,7 @@ public class Main {
     }
     sc.nextLine();
     double resultado = max * s;
-    resultado /= 1000d;
+    resultado /= 1000.0;
     resultado = Math.ceil(resultado);
     max = (int)resultado;
     System.out.println(max);
