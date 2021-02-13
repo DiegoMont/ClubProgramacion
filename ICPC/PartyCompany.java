@@ -1,41 +1,30 @@
 import java.util.Scanner;
 import java.util.LinkedList;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class PartyCompany {
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+  public static void main(String[] args) throws FileNotFoundException{
+    //Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(new File("input.txt"));
     int n = sc.nextInt(), m = sc.nextInt(); sc.nextLine();
     Empleado[] empleados = new Empleado[n];
     for (int i = 0; i < n; i++){
       int age = sc.nextInt(), manager = sc.nextInt(); sc.nextLine();
-      empleados[i] = new Empleado(age, manager-1);
+      empleados[i] = new Empleado(age, manager-1, i);
     }
     for (int i = 0; i < n; i++){
       if(empleados[i].manager != i){
         empleados[empleados[i].manager].subordinates.add(i);
       }
     }
+    calculateSubordinates(empleados, 0);
+    System.out.println(empleados[0].numSubordinados);
     //Para cada fiesta}
     for (int j = 0; j < m; j++) {
       int owner = sc.nextInt(), min = sc.nextInt(), max = sc.nextInt(); sc.nextLine();
-      LinkedList<Integer> fila = new LinkedList<>();
-      fila.push(owner-1);
-      boolean[] visitados = new boolean[n];
-      while (!fila.isEmpty()) {
-        int act = fila.poll();
-        empleados[act].parties++;
-        visitados[act] = true;
-        int managersAge = empleados[empleados[act].manager].age;
-        if (empleados[act].manager != act && managersAge >= min && managersAge <= max && !visitados[empleados[act].manager]) {
-          fila.push(empleados[act].manager);
-        }
-        //Añadir a los subordinados
-        for (int indexSubordinate : empleados[act].subordinates) {
-          int subordinateAge = empleados[indexSubordinate].age;
-          if(subordinateAge >= min && subordinateAge <= max && !visitados[indexSubordinate])
-            fila.push(indexSubordinate);
-        }
-      }
+      
     }
 
     for (Empleado empleado : empleados) {
@@ -44,15 +33,26 @@ public class PartyCompany {
     System.out.println("");
   }
 
+  private static void calculateSubordinates(Empleado[] empleados, int empleadoId) {
+    empleados[empleadoId].numSubordinados += empleados[empleadoId].subordinates.size();
+    for (int index : empleados[empleadoId].subordinates) {
+      Empleado subordinado = empleados[index];
+      calculateSubordinates(empleados, subordinado.id);
+      empleados[empleadoId].numSubordinados += subordinado.numSubordinados;
+    }
+  }
+
 }
 
 class Empleado {
-  int age, manager, parties;
+  int age, manager, parties, numSubordinados, id;
   LinkedList<Integer> subordinates;
-  public Empleado(int age, int manager){
+  public Empleado(int age, int manager, int id){
     this.age = age;
     this.manager = manager;
     parties = 0;
+    numSubordinados = 0;
     subordinates = new LinkedList<>();
+    this.id = id;
   }
 }
