@@ -11,8 +11,8 @@ public class Lavaspar {
   private static byte[][] tablero;
   private static boolean[][] casillasEspeciales;
   public static void main(String[] args) throws FileNotFoundException{
-    Scanner sc = new Scanner(System.in);
-    //Scanner sc = new Scanner (new File("input.txt"));
+    //Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner (new File("input.txt"));
     l = sc.nextInt(); c = sc.nextInt(); sc.nextLine();
     arr = new String[l];
     for (int i = 0; i < l; i++) {
@@ -42,16 +42,16 @@ public class Lavaspar {
     int resultado = 0;
     for (int j = 0; j < l; j++) {
       for (int k = 0; k < c; k++) {
-        //especiales += (casillasEspeciales[j][k] ? "1 ": "0 ");
-        //normales += tablero[j][k];
+        especiales += (casillasEspeciales[j][k] ? "1": "0");
+        normales += tablero[j][k];
         if(casillasEspeciales[j][k])
           resultado++;
       }
-      //especiales += "\n";
-      //normales += "\n";
+      especiales += "\n";
+      normales += "\n";
     }
-    //System.out.println(especiales);
-    //System.out.println(normales);
+    System.out.println(especiales);
+    System.out.println(normales);
     System.out.println(resultado);
 
   }
