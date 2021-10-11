@@ -3,6 +3,24 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Arrays;
+
+class Main {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[][] friends = {{1,2},{0,3},{0,3},{1,2}};
+        List<List<String>> watchedVideos = new LinkedList<>();
+        String[] arreglo = {"A", "B"};
+        watchedVideos.add(Arrays.asList(arreglo));
+        String[] arreglo1 = {"C"};
+        watchedVideos.add(Arrays.asList(arreglo1));
+        String[] arreglo2 = {"B", "C"};
+        watchedVideos.add(Arrays.asList(arreglo2));
+        String[] arreglo3 = {"D"};
+        watchedVideos.add(Arrays.asList(arreglo3));
+        System.out.println(s.watchedVideosByFriends(watchedVideos, friends, 0, 2));
+    }
+}
 
 class Solution {
     private int n;
@@ -14,6 +32,7 @@ class Solution {
         int[] levels = new int[n];
         LinkedList<Integer> queue = new LinkedList<>();
         queue.add(id);
+        visited[id] = true;
         while(!queue.isEmpty()){
             int currentNode = queue.poll();
             if(levels[currentNode] == level)
@@ -22,11 +41,11 @@ class Solution {
                 for(int neighbour: friends[currentNode]){
                     if(!visited[neighbour]){
                         queue.add(neighbour);
+                        visited[neighbour] = true;
                         levels[neighbour] = levels[currentNode] + 1;
                     }
                 }
             }
-            visited[currentNode] = true;
         }
         
         // Order videos
