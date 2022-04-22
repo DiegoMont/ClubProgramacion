@@ -13,6 +13,7 @@ class Main {
         System.out.println(s.repeatedStringMatch("aaac", "aaca") == 2);
         System.out.println(s.repeatedStringMatch("abcd", "cdabcdacdabcd") == -1);
         System.out.println(s.repeatedStringMatch("axaxaya", "axaya") == 1);
+        System.out.println(s.repeatedStringMatch("abababaaba", "aabaaba") == 2);
     }
 }
 
@@ -24,32 +25,23 @@ class Solution {
         final int patternLength = b.length();
         final int stringLength = a.length();
         boolean solutionFound = false;
-        final int maxPossibleCounts = (patternLength + stringLength) / stringLength;
+        final int maxPossibleCounts = (patternLength + stringLength) / stringLength + 1;
         for (int starterI = 0; starterI < stringLength && !solutionFound; starterI++) {
             int repeatedStringI = starterI;
             int patternI = 0;
             repeatsCount = starterI == 0 ? 0: 1;
             while(patternI < patternLength){
+                repeatedStringI %= stringLength;
                 char patternChar = pattern.charAt(patternI);
                 char stringChar = repeatedString.charAt(repeatedStringI);
-                System.out.println(patternChar + "   " + stringChar);
-                if(repeatedStringI == 0) {
-                    if(repeatsCount > maxPossibleCounts)
-                        break;
+                if(repeatedStringI == 0)
                     repeatsCount++;
-                }
                 repeatedStringI++;
-                if(patternChar != stringChar) {
-                    if(repeatedStringI == stringLength)
-                        break;
-                    patternI = -1;
-                }
                 patternI++;
-                if(patternI == patternLength)
-                    return repeatsCount;
-                repeatedStringI %= stringLength;
+                if(patternChar != stringChar || repeatsCount > maxPossibleCounts)
+                    break;
             }
-            solutionFound = patternI == patternLength;
+            solutionFound = patternI == patternLength && pattern.charAt(patternI-1) == repeatedString.charAt(repeatedStringI-1);
         }
         if(solutionFound)
             return repeatsCount;
