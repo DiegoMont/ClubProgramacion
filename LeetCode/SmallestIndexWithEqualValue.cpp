@@ -3,11 +3,9 @@ public:
     int smallestEqual(vector<int>& nums) {
         int i = 0;
         for(int num: nums) {
-            if(i == num)
+            if(i % 10 == num)
                 return i;
             i++;
-            if(i == 10)
-                i = 0;
         }
         return -1;
     }
