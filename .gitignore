@@ -11,6 +11,8 @@ texto.txt
 # Cmake build debug
 Cpp/cmake-build-debug/
 
+*.pyc
+
 # Compiled Object files
 *.o
 *.obj
